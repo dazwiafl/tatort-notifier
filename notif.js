@@ -43,7 +43,7 @@ c.queue([{
           var year = parseInt(((t.split('(')[1]).split(' ')[1]).split(')')[0],10);
           var actyear = parseInt(moment().format('YYYY').toString(),10);
           var beforeactyear = actyear-1;
-          if((hour == 20 || hour == 21)&&(actyear == year || beforeactyear == year)){
+          if((hour == 20 || hour == 21 || hour == 22)&&(actyear == year || beforeactyear == year)){
             var href = $(this).find('a').first().attr('href');
             doSecond(href);
           }else{ process.exit() }
