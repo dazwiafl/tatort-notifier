@@ -6,7 +6,7 @@ It's using the mobile version of teletext (ard-text.de/mobile) because it's easi
 
 Best executed via **cronjob** on a daily basis (because of :christmas_tree:-episodes which have a certain chance of not being aired on sundays ;)
 
-```40 20 * * * /PATH_TO_NODE/node /PATH_TO_NOTIFIER/notif.js```
+```40 21 * * * /PATH_TO_NODE/node /PATH_TO_NOTIFIER/notif.js```
 
 
 I know, I know it's pretty dirty and hacky and breaks if the data changes, but ```¯\_(ツ)_/¯```
