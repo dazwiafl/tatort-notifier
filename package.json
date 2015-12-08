@@ -1,0 +1,15 @@
+{
+  "name": "tatortnotifier",
+  "version": "0.1",
+  "description": "commandline-script",
+  "main": "notif.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anton @dazwiafl Kahr",
+  "license": "MIT",
+  "dependencies": {
+    "crawler": "^0.4.3",
+    "moment": "^2.10.6"
+  }
+}
