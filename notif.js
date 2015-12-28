@@ -4,7 +4,7 @@ var Crawler = require("crawler")
   , url = 'http://www.ard-text.de'
   , exec = require('child_process').exec
   , curl = '/usr/bin/curl'
-  , iftttmakerurl = 'https://maker.ifttt.com/trigger/tatort/with/key/XXX'
+  , iftttmakerurl = 'YOUR_MAKER_URL_HERE'
 ;
 
 var c = new Crawler()
@@ -33,22 +33,28 @@ var c = new Crawler()
 c.queue([{
   uri: url+'/mobil/303'
   , callback : function (error, result, $) {
+      var breaker = false;
       $('.pageWrapper .master .std > div').each(function(){
         var t = $(this).text().toLowerCase()
+          , h = $(this).html()
         ;
 
         if(t.indexOf(searchStr) > -1){
           t = t.split('\r').join('').split('\n').join(' ').split('\t').join('').trim();
           var hour = parseInt((t.split(' ')[0]).split(':')[0],10);
-          var year = parseInt(((t.split('(')[1]).split(' ')[1]).split(')')[0],10);
+          var year = parseInt(((t.split('fernsehfilm, ')[1]).split(' ')[1]).split(')')[0],10);
           var actyear = parseInt(moment().format('YYYY').toString(),10);
           var beforeactyear = actyear-1;
-          if((hour == 20 || hour == 21 || hour == 22)&&(actyear == year || beforeactyear == year)){
+          if((hour == 20 || hour == 21)&&(actyear == year || beforeactyear == year)){
             var href = $(this).find('a').first().attr('href');
             doSecond(href);
+            breaker = true;
           }else{ process.exit() }
         }
       });
+      if(!breaker){
+        process.exit();
+      }
     }
   }]
 );
