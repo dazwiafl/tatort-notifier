@@ -1,7 +1,7 @@
 {
-  "name": "tatortnotifier",
-  "version": "0.1",
-  "description": "commandline-script",
+  "name": "tatort-notifier",
+  "version": "1.0.0",
+  "description": "",
   "main": "notif.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "crawler": "^0.4.3",
-    "moment": "^2.10.6"
+    "moment": "^2.10.6",
+    "underscore": "^1.8.3"
   }
 }
