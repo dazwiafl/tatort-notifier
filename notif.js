@@ -15,7 +15,7 @@ var c = new Crawler()
           {
             uri: url+href
             , callback: function(error, result, $){
-                var end = (($('.pageWrapper .master .std').first().text().split(", ")[1]).split(' - ')[1]).split(" ")[0];
+                var end = ($('.pageWrapper .master .std').first().text().split(' - ')[1]).split(" ")[0];
                 var endst = moment((moment().format('YYYY-MM-DD HH:mm').toString().split(' ')[0])+' '+end, 'YYYY-MM-DD HH:mm').format('x');
                 var now = moment().format('x');
                 var threshold = 60*1000*2; //substract 2 minutes because of advertisment
